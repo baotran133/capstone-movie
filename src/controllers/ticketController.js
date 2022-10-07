@@ -56,7 +56,7 @@ const taoLichChieu = async (req, res) => {
     const res_data = await prisma.showtime.create({
         data: {
             cinemaId: maRap,
-            startTime: ngayChieuGioChieu
+            startTime: new Date(ngayChieuGioChieu)
         }
     });
     successCode(res, res_data);

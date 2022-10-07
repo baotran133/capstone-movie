@@ -8,8 +8,8 @@ ticketRouter.get("/LayDanhSachPhongVe", ticketController.layDanhSachPhongVe);
 
 ticketRouter.post(
     "/TaoLichChieu",
-    authController.checkToken,
-    authController.checkRole,
+    authController.checkToken, //check token nguoi dung
+    authController.checkRole, //check role nguoi dung role_id=1
     ticketController.taoLichChieu
 );
 
