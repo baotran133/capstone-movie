@@ -22,7 +22,7 @@ res data gôm thông tin phim(movie) và thông tin rạp - danh sách lịch ch
 */
 const layDanhSachPhongVe = async (req, res) => {
     const { MaLichChieu } = req.query;
-    try {
+    if (MaLichChieu) {
         const res_data = await prisma.cinema_movie.findFirst({
             where: {
                 id: Number(MaLichChieu)
@@ -45,8 +45,8 @@ const layDanhSachPhongVe = async (req, res) => {
         } else {
             errorCode(res, "Mã lịch chiếu không tồn tại");
         }
-    } catch {
-        failCode(res);
+    } else {
+        res.status(500).send("Mã lịch chiếu không tồn tại");
     }
 };
 
